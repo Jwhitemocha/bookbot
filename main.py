@@ -1,6 +1,6 @@
 # Accessing book file 
-def main():
-    with open('books/frankenstein.txt') as f:
+def main(file_path):
+    with open(file_path) as f:
 
         file_contents = f.read()
     return file_contents
@@ -38,12 +38,18 @@ def print_report(file_path, word_count, char_count):
     
     print("--- End report ---")
 
+
+# Gets file path from user 
+file_path = input("Enter the path of the text file ex: 'books/bookname.txt':")
+
 # Calling main() to get file contents
-file_contents = main()
+file_contents = main(file_path)
 
 # Get word and character counts 
 word_count = count_words(file_contents)
 char_count = count_characters(file_contents)
 
+
+
 # Print report 
-print_report('books/frankenstein.txt', word_count, char_count)
+print_report(file_path, word_count, char_count)
